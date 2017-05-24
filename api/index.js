@@ -2,6 +2,7 @@ import request from 'superagent'
 
 export function getYoda (myText, cb) {
   myText = myText.replace(/ /gi, '+') // replacing spaces with '+'
+  console.log('In the getYoda function: '+ myText)
 
   request
      .get('https://yoda.p.mashape.com/yoda?sentence=' + myText)

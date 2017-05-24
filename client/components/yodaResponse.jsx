@@ -1,6 +1,8 @@
 import React from 'react'
 import { getYoda } from '../../api'
 
+
+
 class YodaResponse extends React.Component {
   constructor (props) {
     super(props)
@@ -10,9 +12,11 @@ class YodaResponse extends React.Component {
     }
   }
 
+
   componentDidMount () {
     this.setState({errMessage: null})
-    getYoda("I like to eat ice cream",(err, res) => {
+    getYoda(this.props.MessageToBeTranslated,(err, res) => {
+    //  console.log(this.props.MessageToBeTranslated)
       if (err) {
         this.setState({ errMessage: err })
         return
@@ -26,8 +30,10 @@ class YodaResponse extends React.Component {
   }
 
   render () {
+    // console.log(this.props)
     return (
       <div>
+        Yoda translation:
         <p>{this.state.yoda}</p>
       </div>
     )
