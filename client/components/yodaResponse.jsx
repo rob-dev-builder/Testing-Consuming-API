@@ -1,8 +1,7 @@
 import React from 'react'
-// import { getYoda } from '../../api'
-import YodaResponse from './yodaResponse'
+import { getYoda } from '../../api'
 
-class App extends React.Component {
+class YodaResponse extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -29,17 +28,10 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <h1>Yoda Speak</h1>
-        <p>Enter something to be yodified</p>
-        <form>
-          <input type="text"/>
-          <button>Yodify</button>
-        </form>
-        <p>Yoda translation:</p>
-        <p><YodaResponse /></p>
+        <p>{this.state.yoda}</p>
       </div>
     )
   }
 }
 
-export default App
+export default YodaResponse
