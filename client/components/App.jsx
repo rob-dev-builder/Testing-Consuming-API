@@ -12,7 +12,7 @@ class App extends React.Component {
 
   componentDidMount () {
     this.setState({errMessage: null})
-    getYoda((err, res) => {
+    getYoda("I like to eat ice cream",(err, res) => {
       if (err) {
         this.setState({ errMessage: err })
         return
