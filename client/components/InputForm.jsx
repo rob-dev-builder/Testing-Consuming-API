@@ -1,7 +1,4 @@
 import React from 'react'
-import { getYoda } from '../../api'
-
-import YodaResponse from './yodaResponse'
 
 class InputForm extends React.Component {
   constructor (props) {
@@ -17,9 +14,10 @@ class InputForm extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('A text was submitted: ' + this.state.value)
+    const MessageFromUser = this.state.value
+    alert('A text was submitted: '+ this.state.value)
+    this.props.callbackFromParent(MessageFromUser)
     event.preventDefault()
-    // const MessageFromUser = this.state.value
   }
 
   render () {
@@ -29,8 +27,6 @@ class InputForm extends React.Component {
           <input type="text" value={this.state.value} onChange={this.handleChange} />
           <input type="submit" value="Submit" />
         </form>
-         <p><YodaResponse MessageToBeTranslated={this.state.value}/></p>
-         {/* <p><YodaResponse MessageToBeTranslated={'This is some value'}/></p> */}
       </div>
     )
   }
